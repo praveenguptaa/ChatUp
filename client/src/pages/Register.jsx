@@ -15,6 +15,12 @@ const Register = () => {
     confirmPassword: "",
   })
 
+   useEffect(() => {
+      if(localStorage.getItem('chat-app-user')){
+        navigate('/');
+      }
+    }, [])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(handlevalidation()){
