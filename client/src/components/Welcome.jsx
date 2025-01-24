@@ -1,12 +1,27 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
-import Robot from '../assets/robot.gif'
+import Robot from '../assets/robot.gif';
+import {useNavigate} from 'react-router-dom';
+
 
 export default function Welcome() {
 
-    const [userName, setUserName] = useState(()=>{
-        return JSON.parse(localStorage.getItem("chat-app-user")).username;
-    })
+  const navigate = useNavigate();
+  
+  const [userName, setUserName] = useState("");
+
+  const gettingCurrentUser = async () => {
+    const currentUser = await JSON.parse(localStorage.getItem("chat-app-user"));
+    if(!currentUser){
+      navigate("/login");
+    }
+    setUserName(currentUser.username);
+  }
+
+  useEffect(() => {
+    gettingCurrentUser();
+  }, [])
+  
 
   return (
     <Container>

@@ -13,11 +13,12 @@ export default function ChatInput({handleSendMsg}) {
     setShowEmojiPicker(!showEmojiPicker);
   }
 
-  const handleEmojiClick = () => {
-    console.log(emoji);
+  const handleEmojiClick = (emojiObject) => {
+    console.log(emojiObject.emoji);
     let message = msg;
     message += emojiObject.emoji;
     SetMsg(message);
+    // message = "";
   }
 
   const sendChat = (event) => {
@@ -25,6 +26,7 @@ export default function ChatInput({handleSendMsg}) {
     if(msg.length > 0){
       handleSendMsg(msg);
       SetMsg("");
+      setShowEmojiPicker(false);
     }
   };
 
@@ -33,7 +35,7 @@ export default function ChatInput({handleSendMsg}) {
       <div className="button-container">
         <div className="emoji">
             <BsEmojiSmileFill onClick={handleEmojiPickerHideShow}/>
-            {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick}/>}
+            {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} height={300} width={200}/>}
         </div>
       </div>
       <form className='input-container' onSubmit={(event) => sendChat(event)}>
@@ -76,24 +78,31 @@ const Container = styled.div`
             }
             .epr-main {
                 position: absolute;
-                /* height: 200px;
-                width: 200px; */
-                top: -470px;
+                top: -320px;
                 background-color: #080420;
                 box-shadow: 0 5px 10px #9a86f3;
-                .epr_b8hfyo::-webkit-scrollbar {
+                
+              }
+              .epr_b8hfyo::-webkit-scrollbar {
                   background-color: #080420;
                   width: 5px;
                   &-thumb {
                     background-color: #9a86f3;
                   }
                 }
-                .epr_-2zpaw9 {
+              .epr_-2zpaw9 {
                   background-color: transparent;
                   border-color: #9a86f3;
-                }
-/* emoji styling remaining */
-            }
+              }
+              .epr-emoji-category-label {
+                display: none;
+              }
+              .epr-category-nav {
+                display: none;
+              }
+              .epr_-kg0voo {
+                display: none;
+              } 
         }
 
     }
