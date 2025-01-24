@@ -13,7 +13,7 @@ module.exports.register = async (req, res, next) => {
         if(emailCheck)
             return res.json({msg: "Email already used", status: false});
         const hashedpassword = await bcrypt.hash(password, 10);
-        const user = User.create({
+        const user = await User.create({
             username,
             email,
             password: hashedpassword,
