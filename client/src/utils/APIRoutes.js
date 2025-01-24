@@ -10,3 +10,7 @@ export const allUsersRoute = `${host}/api/auth/allUsers`;
 export const sendMessageRoute = `${host}/api/message/addmsg`;
 
 export const getAllMessagesRoute = `${host}/api/message/getmsg`;
+
+export const firebaseLoginRoute = `${host}/api/auth/firebaseLogin`;
+
+export const checkUsernameRoute = `${host}/api/auth/checkUsername`;

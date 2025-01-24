@@ -46,6 +46,24 @@ module.exports.login = async (req, res, next) => {
     
 };
 
+module.exports.firebaseLogin = async (req,res,next) => {
+    try {
+        const {email} = req.body;
+        const user = await User.findOne({email});
+        if(user){
+            delete user.password;
+            return res.json({status: true, user });
+        }else {
+            return res.json({
+                status: false,
+                msg: "Email not found in database, Welcome new user.",
+            });
+        }
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports.setAvatar = async (req, res, next) => {
     try {
         const userId = req.params.id;
@@ -82,3 +100,23 @@ module.exports.getAllUsers = async (req, res, next) => {
         next(error);
     }
 }
+
+module.exports.checkUsername = async (req, res, next) => {
+    try {
+        const {username} = req.body;
+        const user = await User.findOne({username});
+        if(user){
+            return res.json({
+                status: false,
+                msg: "Username unavailable.",
+            })
+        } else {
+            return res.json({
+                status: true,
+                msg: "Username available.",
+            });
+        }
+    } catch (error) {
+        next(error);
+    }
+};

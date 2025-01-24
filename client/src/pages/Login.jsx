@@ -5,6 +5,7 @@ import logo from '../assets/logo.svg'
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios'
 import { loginRoute } from '../utils/APIRoutes';
+import SocialLoginButtons from '../components/SocialLoginButtons';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -100,7 +101,8 @@ const Login = () => {
           onChange={(e)=>{handleChange(e)}}
           />
           
-          <button type="submit">Login</button>
+          <button type="submit" className='btn'>Login</button>
+          <SocialLoginButtons/>
           <span>
             Don't have an account ? <Link to="/register" >Register</Link>
           </span>
@@ -155,7 +157,7 @@ const FormContainer = styled.div`
         outline: none;
       }
     }
-    button {
+    .btn {
       background-color: #997af0;
       color: white;
       padding: 1rem 2rem;
