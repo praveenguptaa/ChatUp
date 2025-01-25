@@ -33,7 +33,7 @@ const Contacts = ({contacts, currentUser, changeChat}) => {
         <Container>
             <div className="brand">
                 <img src={Logo} alt="logo" />
-                <h3>ChatGo</h3>
+                <h3>Chatup</h3>
             </div>
             <div className="contacts">
                 {

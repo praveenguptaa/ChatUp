@@ -83,7 +83,7 @@ const Login = () => {
         <form onSubmit={(e)=>{handleSubmit(e)}}>
           <div className="brand">
             <img src={logo} alt="Logo" srcset="" />
-            <h1>ChatGo</h1>
+            <h1>ChatUp</h1>
           </div>
 
           <input 
