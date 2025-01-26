@@ -29,7 +29,7 @@ const server = app.listen(process.env.PORT, ()=>{
 
 const io = socket(server, {
     cors: {
-        origin: "beamish-otter-61d5eb.netlify.app",
+        origin: "https://chatup-backend-39cx.onrender.com",
         credentials: true,
     },
 });
