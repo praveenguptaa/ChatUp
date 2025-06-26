@@ -1,4 +1,4 @@
-export const host = "https://chatup-backend-39cx.onrender.com";
+export const host = "https://chatup-server-jh7y.onrender.com";
 export const registerRoute = `${host}/api/auth/register`;
 
 export const loginRoute = `${host}/api/auth/login`;
